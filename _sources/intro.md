@@ -1,11 +1,22 @@
-# Welcome to your Jupyter Book
+# Proyek Sains Data
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
 
-Check out the content pages bundled with this sample book to see more.
+Materi proyek sains data biasanya mencakup seluruh tahapan dalam pengolahan data, mulai dari pengumpulan, pembersihan, eksplorasi, hingga analisis menggunakan berbagai metode. Di dalamnya juga dipelajari pemodelan dengan algoritma machine learning, evaluasi hasil, serta cara menyajikan temuan melalui visualisasi atau aplikasi sederhana.
+
+
+Dengan memahami materi ini, kita dapat mengubah data menjadi informasi yang bernilai, sekaligus melatih kemampuan bekerja dalam tim untuk menyelesaikan permasalahan nyata. Melalui proyek ini, kita juga belajar bagaimana menerapkan sains data secara end-to-end sehingga hasilnya dapat digunakan untuk mendukung pengambilan keputusan yang lebih baik.
+
+
+Identitas Mahasiswa
+
+Nama: Dwi Prasetya Mumtaz
+
+Nim: 230411100099
+
+Prodi: Teknik Informatika
+
+Email: dwiprasetyamumtaz@gmail.com
+
 
 ```{tableofcontents}
 ```
