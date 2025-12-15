@@ -1,0 +1,73 @@
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/asyncio/base_events.py", line 684, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import os
+import pandas as pd
+
+# Folder dataset asli
+base_dir = "dataset"
+
+# Daftar kelas (subfolder)
+classes = ["buka", "tutup"]
+
+# List untuk menyimpan info
+data_info = []
+
+# Loop setiap kelas
+for cls in classes:
+    folder_path = os.path.join(base_dir, cls)
+    files = [f for f in os.listdir(folder_path) if f.lower().endswith(('.wav', '.m4a'))]
+    
+    print(f"🎙️ Kelas '{cls}' memiliki {len(files)} file suara.")
+    
+    # Simpan info ke list
+    for file in files:
+        file_path = os.path.join(folder_path, file)
+        data_info.append({
+            "kelas": cls,
+            "nama_file": file,
+            "path": file_path
+        })
+
+# Buat DataFrame ringkasan
+df_awal = pd.DataFrame(data_info)
+
+# Tampilkan 10 data teratas
+print("\n🔎 Contoh Data Awal:")
+display(df_awal.head(10))
+
+# Jumlah total per kelas
+print("\n📈 Distribusi Data Awal:")
+print(df_awal["kelas"].value_counts())
+
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 16[39m
+[32m     14[39m [38;5;28;01mfor[39;00m [38;5;28mcls[39m [38;5;129;01min[39;00m classes:
+[32m     15[39m     folder_path = os.path.join(base_dir, [38;5;28mcls[39m)
+[32m---> [39m[32m16[39m     files = [f [38;5;28;01mfor[39;00m f [38;5;129;01min[39;00m [43mos[49m[43m.[49m[43mlistdir[49m[43m([49m[43mfolder_path[49m[43m)[49m [38;5;28;01mif[39;00m f.lower().endswith(([33m'[39m[33m.wav[39m[33m'[39m, [33m'[39m[33m.m4a[39m[33m'[39m))]
+[32m     18[39m     [38;5;28mprint[39m([33mf[39m[33m"[39m[33m🎙️ Kelas [39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mcls[39m[38;5;132;01m}[39;00m[33m'[39m[33m memiliki [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(files)[38;5;132;01m}[39;00m[33m file suara.[39m[33m"[39m)
+[32m     20[39m     [38;5;66;03m# Simpan info ke list[39;00m
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'dataset/buka'
+
